@@ -43,9 +43,10 @@ fi
 # =======================================================
 # PYTHON SCRIPT (FORMAT SESUAI REQUEST)
 # =======================================================
-wget -O /root/botdot/main.py
-wget -O /root/botdot/login.py
-wget -O /root/botdot/loop.py
+wget -O /root/botdot/main.py https://raw.githubusercontent.com/DOT-SUNDA/loopdotni/refs/heads/main/main.py
+wget -O /root/botdot/login.py https://raw.githubusercontent.com/DOT-SUNDA/loopdotni/refs/heads/main/login.py
+wget -O /root/botdot/loop.py https://raw.githubusercontent.com/DOT-SUNDA/loopdotni/refs/heads/main/loop.py
+wget -O /root/botdot/modul_bot.py https://raw.githubusercontent.com/DOT-SUNDA/loopdotni/refs/heads/main/modul_bot.py
 
 # =======================================================
 # SYSTEMD SERVICE (Auto Start)
