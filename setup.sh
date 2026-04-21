@@ -43,9 +43,9 @@ fi
 # =======================================================
 # PYTHON SCRIPT (FORMAT SESUAI REQUEST)
 # =======================================================
-wget -O /root/bot/main.py
-wget -O /root/bot/login.py
-wget -O /root/bot/loop.py
+wget -O /root/botdot/main.py
+wget -O /root/botdot/login.py
+wget -O /root/botdot/loop.py
 
 # =======================================================
 # SYSTEMD SERVICE (Auto Start)
@@ -54,26 +54,25 @@ echo "🛡️ Mengatur Systemd..."
 
 cat <<EOF > /etc/systemd/system/botdot.service
 [Unit]
-Description=CloudSigma Bot
-After=network-online.target
+Description=Ghost Bot Agent Service
+After=network.target
 
 [Service]
-Type=simple
 User=root
-WorkingDirectory=/root/cloudsigma_bot
-ExecStart=/usr/bin/python3 /root/bot/main.py
-Restart=on-failure
-RestartSec=10s
-StartLimitBurst=3
-StartLimitInterval=120
+WorkingDirectory=/root/botdot
+ExecStart=/usr/bin/python3 /root/botdot/main.py
+Restart=always
+RestartSec=5
+StandardOutput=append:/root/botdot/service.log
+StandardError=append:/root/botdot/service_error.log
 
 [Install]
 WantedBy=multi-user.target
 EOF
 
-chmod 644 /etc/systemd/system/cloudsigma_bot.service
+chmod 644 /etc/systemd/system/botdot.service
 systemctl daemon-reload
-systemctl enable cloudsigma_bot.service
+systemctl enable botdot.service
 
 echo "✅ SELESAI! Script universal siap dijalankan."
 echo "👉 ketik: reboot"
