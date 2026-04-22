@@ -116,7 +116,7 @@ def menu_1():
         "{python} {login} > {log} 2>&1 &"
     ).format(
         screen=SCREEN_LOGIN,
-        python="python",
+        python="python3",
         login=FILE_LOGIN,
         log=LOG_FILE
     )
@@ -134,7 +134,7 @@ def menu_2():
         "{python} -u {loop} > {log} 2>&1 &"
     ).format(
         screen=SCREEN_LOOP,
-        python="python",
+        python="python3",
         loop=FILE_LOOP,
         log=LOG_FILE
     )
